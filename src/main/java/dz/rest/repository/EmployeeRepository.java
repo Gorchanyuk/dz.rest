@@ -1,4 +1,4 @@
-package dz.rest.dto.interfaces;
+package dz.rest.repository;
 
 import dz.rest.models.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;

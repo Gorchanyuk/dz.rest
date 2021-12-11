@@ -1,5 +1,6 @@
 package dz.rest.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
-public class jdbcTemplateConfig {
+public class Config {
 
     @Bean
 //    public JdbcTemplate jdbcTemplate(@Value("${url}")String url) throws ClassNotFoundException {
@@ -17,6 +18,11 @@ public class jdbcTemplateConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl( url);
         return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public ModelMapper getMapper() {
+        return new ModelMapper();
     }
 
 
