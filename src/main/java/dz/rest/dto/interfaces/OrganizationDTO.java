@@ -7,11 +7,11 @@ import java.util.List;
 public interface OrganizationDTO {
     List<Organization> index();
 
-    Organization show(int id);
+    Organization show(long id);
 
     void save(Organization organization);
 
-    void update(int id, Organization updateOrganization);
+    void update(long id, Organization updateOrganization);
 
-    void delete(int id);
+    void delete(long id);
 }

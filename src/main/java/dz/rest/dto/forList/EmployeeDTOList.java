@@ -11,7 +11,7 @@ import java.util.List;
 public class EmployeeDTOList implements EmployeeDTO {
 
     private List<Employee> employees;
-    private static int EMPLOYEE_COUNT;
+    private static long EMPLOYEE_COUNT;
 
     {
         employees = new ArrayList<>();
@@ -27,7 +27,7 @@ public class EmployeeDTOList implements EmployeeDTO {
     }
 
     @Override
-    public Employee show(int id) {
+    public Employee show(long id) {
         return employees.stream()
                 .filter(x -> x.getId() == id)
                 .findAny()
@@ -41,7 +41,7 @@ public class EmployeeDTOList implements EmployeeDTO {
     }
 
     @Override
-    public void update(int id, Employee updateEmployee) {
+    public void update(long id, Employee updateEmployee) {
         Employee employeeToBeUpdated = show(id);
         employeeToBeUpdated.setName(updateEmployee.getName());
         employeeToBeUpdated.setSurname(updateEmployee.getSurname());
@@ -50,7 +50,7 @@ public class EmployeeDTOList implements EmployeeDTO {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         employees.removeIf(x -> x.getId() == id);
     }
 }

@@ -7,11 +7,11 @@ import java.util.List;
 public interface EmployeeDTO {
     List<Employee> index();
 
-    Employee show(int id);
+    Employee show(long id);
 
     void save(Employee employee);
 
-    void update(int id, Employee updateEmployee);
+    void update(long id, Employee updateEmployee);
 
-    void delete(int id);
+    void delete(long id);
 }

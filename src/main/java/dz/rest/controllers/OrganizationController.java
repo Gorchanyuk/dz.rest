@@ -25,7 +25,7 @@ public class OrganizationController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id) {
+    public String show(@PathVariable("id") long id) {
         return organizationDTO.show(id).toString();
     }
 
@@ -35,13 +35,13 @@ public class OrganizationController {
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable("id") int id,
+    public void update(@PathVariable("id") long id,
                        @RequestBody Organization request) {
         organizationDTO.update(id, request);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id) {
+    public void delete(@PathVariable("id") long id) {
         organizationDTO.delete(id);
     }
 }

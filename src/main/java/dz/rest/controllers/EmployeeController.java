@@ -15,7 +15,7 @@ public class EmployeeController {
 
     private final EmployeeDTO employeeDTO;
 
-    public EmployeeController(@Qualifier("employeeDTOJdbc") EmployeeDTO employeeDTO) {
+    public EmployeeController(@Qualifier("employeeHibernate") EmployeeDTO employeeDTO) {
         this.employeeDTO = employeeDTO;
     }
 
@@ -25,7 +25,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public String show (@PathVariable("id") int id){
+    public String show (@PathVariable("id") long id){
         return employeeDTO.show(id).toString();
     }
 
@@ -35,13 +35,13 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public void update (@PathVariable("id") int id,
+    public void update (@PathVariable("id") long id,
                         @RequestBody Employee request){
         employeeDTO.update(id, request);
     }
 
     @DeleteMapping("/{id}")
-    public void delete (@PathVariable("id") int id){
+    public void delete (@PathVariable("id") long id){
         employeeDTO.delete(id);
     }
 }

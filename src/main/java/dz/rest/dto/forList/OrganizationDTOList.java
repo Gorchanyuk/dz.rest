@@ -12,7 +12,7 @@ import java.util.List;
 public class OrganizationDTOList implements OrganizationDTO {
 
     private List<Organization> organizations;
-    private static int ORGANIZATION_COUNT;
+    private static long ORGANIZATION_COUNT;
 
     {
         organizations = new ArrayList<>();
@@ -28,7 +28,7 @@ public class OrganizationDTOList implements OrganizationDTO {
     }
 
     @Override
-    public Organization show(int id) {
+    public Organization show(long id) {
         return organizations.stream()
                 .filter(x -> x.getId() == id)
                 .findAny()
@@ -42,14 +42,14 @@ public class OrganizationDTOList implements OrganizationDTO {
     }
 
     @Override
-    public void update(int id, Organization updateOrganization) {
+    public void update(long id, Organization updateOrganization) {
         Organization organizationToBeUpdated = show(id);
         organizationToBeUpdated.setName(updateOrganization.getName());
         organizationToBeUpdated.setUrl((updateOrganization.getUrl()));
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         organizations.removeIf(x -> x.getId() == id);
     }
 }

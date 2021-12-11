@@ -22,7 +22,7 @@ public class OrganizationDTOJdbc implements OrganizationDTO {
     }
 
     @Override
-    public Organization show(int id) {
+    public Organization show(long id) {
         return jdbcTemplate.query("SELECT * FROM Organization WHERE id=?",
                 new BeanPropertyRowMapper<>(Organization.class),
                 id).stream().findAny().orElse(null);
@@ -35,7 +35,7 @@ public class OrganizationDTOJdbc implements OrganizationDTO {
     }
 
     @Override
-    public void update(int id, Organization updateOrganization) {
+    public void update(long id, Organization updateOrganization) {
         jdbcTemplate.update("UPDATE Organization SET name=?, url=? WHERE id=?",
                 updateOrganization.getName(),
                 updateOrganization.getUrl(),
@@ -43,7 +43,7 @@ public class OrganizationDTOJdbc implements OrganizationDTO {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         jdbcTemplate.update("DELETE FROM Organization WHERE id=?", id);
     }
 }

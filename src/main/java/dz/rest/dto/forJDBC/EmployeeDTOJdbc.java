@@ -24,7 +24,7 @@ public class EmployeeDTOJdbc implements EmployeeDTO {
     }
 
     @Override
-    public Employee show(int id) {
+    public Employee show(long id) {
         return jdbcTemplate.query("SELECT * FROM Employee WHERE id=?",
                 new BeanPropertyRowMapper<>(Employee.class),
                 id).stream().findAny().orElse(null);
@@ -37,7 +37,7 @@ public class EmployeeDTOJdbc implements EmployeeDTO {
     }
 
     @Override
-    public void update(int id, Employee updateEmployee) {
+    public void update(long id, Employee updateEmployee) {
         jdbcTemplate.update("UPDATE Employee SET name=?, surname=?, age=?, phoneNumber=? WHERE id=?",
                 updateEmployee.getName(),
                 updateEmployee.getSurname(),
@@ -47,7 +47,7 @@ public class EmployeeDTOJdbc implements EmployeeDTO {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         jdbcTemplate.update("DELETE FROM Employee WHERE id=?", id);
     }
 }
